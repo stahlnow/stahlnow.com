@@ -18,7 +18,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'gunicorn',
-    'djsupervisor',
     'django_extensions',
     'djangobower',
     'compressor',
