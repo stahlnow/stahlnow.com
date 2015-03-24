@@ -37,6 +37,12 @@ class File(models.Model):
         return self.file.name
 
 
+    def image_tag(self):
+        return u'<img src="%s" width="400px" />' % (settings.GALLERY_URL + self.file.name)
+
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
+
 @receiver(models.signals.post_delete, sender=File)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     """Deletes file from filesystem
