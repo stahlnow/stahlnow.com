@@ -5,9 +5,15 @@ from gallery.models import File
 
 register = template.Library()
 
-@register.assignment_tag
-def get_files():
-    return File.objects.all()
+
+@register.inclusion_tag('gallery/templatetags/gallery_inline.html', takes_context=True)
+def gallery_inline(context):
+    files = File.objects.all()
+
+    context['files'] = files
+
+    return context
+
 
 @register.filter
 def shuffle(arg):
