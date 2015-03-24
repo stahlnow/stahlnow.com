@@ -26,6 +26,5 @@ python-dateutil==2.3
 python-mimeparse==0.1.4
 pytz==2014.4
 six==1.7.3
-supervisor==3.0
 watchdog==0.8.0
 wsgiref==0.1.2
