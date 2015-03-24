@@ -122,7 +122,7 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
     animation: pony 1s;*/
 }
 
-#threejs {
+.threejs {
     position: absolute;
     overflow: hidden;
 }

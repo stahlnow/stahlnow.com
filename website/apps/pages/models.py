@@ -8,7 +8,7 @@ class Page(models.Model):
     title = models.CharField(_('title'), max_length=100)
     slug = models.SlugField(_('slug'), unique=True)
     body = RichTextField(_('body'), )
-    script = models.TextField(_('script'), blank=True)
+    script = models.TextField(_('script'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('page')
