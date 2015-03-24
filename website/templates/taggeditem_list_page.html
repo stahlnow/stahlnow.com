@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load endless %}
+{% lazy_paginate taggeditems %}
+
+<div class="row full">
+    <div class="small-12 large-6 columns">
+        <p>Showing posts tagged with {{ tag}}:</p>
+    </div>
+</div>
+
+{% for taggeditem in taggeditems %}
+
+<div class="row full">
+    <div class="small-12 large-6 columns">
+        <a class="blog_title" href="{{ taggeditem.content_object.get_absolute_url }}" rel="bookmark"
+           title="{% trans 'permalink' %}">{{ taggeditem.content_object.title }}</a>
+
+        <div class="blog_subline">
+            <ul class="inline-list">
+                {% for tag in taggeditem.content_object.tags.all %}
+                <li class="tag-pill"><span>#<a href="/show/{{ tag.name }}">{{tag.name}}</a></span></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {{ taggeditem.content_object.body|safe }}
+    </div>
+</div>
+{% endfor %}
+{% show_more "<div class='row left'><div class='button load_more large-4 medium-4 small-4 columns'>show more</div></div>" "<div class='row left'>    <div class='button load_more large-4 medium-4 small-4 columns'>loading…</div></div>"%}

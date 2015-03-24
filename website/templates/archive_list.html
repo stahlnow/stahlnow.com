@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load sekizai_tags %}
+{% load endless %}
+
+{% block main %}
+
+<div class="row full">
+    <div class="large-12 columns">
+        {% if archiveditems %}
+        <ul>
+        {% for item in archiveditems %}
+        <li style="font-size:20px"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a> &nbsp; {{ item.publish|date:"F Y"}}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>No posts found!!! :(</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

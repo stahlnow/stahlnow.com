@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+
+    <!-- select first category by default -->
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $("#id_categories").val($("#id_categories option:first").val());
+            });
+        })(django.jQuery);
+    </script>
+
+{% endblock %}

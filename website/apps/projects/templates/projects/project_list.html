@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load sekizai_tags %}
+{% load endless %}
+
+{% block main %}
+
+{% if projects %}
+{% include page_template %}
+{% addtoblock "js" %}
+<script>$.endlessPaginate();</script>
+{% endaddtoblock %}
+
+{% else %}
+<div class="row full">
+    <div class="large-12 columns">
+        <p>No projects found!!! :(</p>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

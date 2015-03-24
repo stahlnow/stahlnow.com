@@ -1,0 +1,80 @@
+{% load sekizai_tags %}
+<div id="{{ id|default:'sidebar' }}">
+
+    <h3 class="sidebar_title">Gallery</h3>
+
+    <div class="sidebar_inner" style="padding-left:1px; margin-top: -10px; margin-bottom: -15px;">
+        <canvas class="gallery" {% if id == "sidebar-mobile" %} width=232px height=150px {% else %} width=312px height=150px {% endif %}>
+            <p>Your browser doesn't support canvas! Try Chrome, Firefox or Opera</p>
+        </canvas>
+
+        {% load gallery_tags %}
+        {% get_files as files %}
+        {% addtoblock "js" %}
+        <script type="text/javascript">
+
+            $(function(){
+                $(".gallery").each(function(index) {
+
+                    $(this).kenburns({
+                        images:
+                        [
+                        {% for file in files %}
+                        '/media/gallery/{{ file.file }}',
+                        {% endfor %}
+                        ],
+                        frames_per_second: 30,
+                        display_time: 7000,
+                        fade_time: 1000,
+                        zoom: 2,
+                        background_color:'#ffffff',
+                        post_render_callback: function($canvas, context) {
+                            // Called after the effect is rendered
+                            // Draw anything you like on to of the canvas
+                            context.save();
+                            context.fillStyle = '#000';
+                            context.font = 'bold 20px sans-serif';
+                            var width = $canvas.width();
+                            var height = $canvas.height();
+                            var text = "html5 galore!";
+                            var metric = context.measureText(text);
+
+                            context.fillStyle = '#fff';
+
+                            context.shadowOffsetX = 3;
+                            context.shadowOffsetY = 3;
+                            context.shadowBlur = 4;
+                            context.shadowColor = 'rgba(0, 0, 0, 0.8)';
+
+                            context.fillText(text, width - metric.width - 8, height - 8);
+
+                            context.restore();
+                        }
+                    });
+});
+});
+</script>
+{% endaddtoblock %}
+
+</div>
+
+<h3 class="sidebar_title">Contact</h3>
+<div class="sidebar_inner">
+    <a href="javascript:contact()" style="font-size: 16px;">office / at / stahlnow / com</a><br/>
+</div>
+
+<h3 class="sidebar_title">Tags</h3>
+<div class="sidebar_inner tag_cloud">
+    {% load taggit_extras %}
+    {% get_tagcloud as tags %}
+    {% for tag in tags %}
+    <span class="tag-{{ tag.weight|floatformat:0 }}">
+        <a href="/show/{{ tag.name }}" title="{{ tag.num_times }}">{{ tag.name }}</a></span>{% endfor %}
+    </div>
+
+
+    <h3 class="sidebar_title">Meta</h3>
+    <div class="sidebar_inner">
+    <a href="/archive" style="font-size: 16px;">Archive</a>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}STAHLNOW!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'foundation/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'foundation/css/foundation.css' %}">
+</head>
+
+<body>
+    <section id="uploader">
+        <div>
+            <div>
+                <label for="filePicker">Choose or drag a file:</label>
+                <input type="file" id="filePicker">
+            </div>
+            <div>
+                <textarea id="fileBase64" placeholder="Base64 will appear here" cols="50" rows="5"></textarea>
+            </div>
+        </div>
+
+        <a href="#" id="upload" class="button">Upload</a>
+
+        <div id="files">
+            <ul id="file_list">
+                <script id="file_template" type="text/template">
+                    <div class="file">
+                        <%= id %><img src="<%= file %>" style="height: 200px;"/>
+                    </div>
+                </script>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <script src="{% static 'jquery/dist/jquery.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'foundation/js/foundation.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'underscore/underscore-min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'backbone/backbone.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/uploader.js' %}" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(document).foundation();
+    </script>
+
+</body>
+</html>

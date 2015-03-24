@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+{% load sekizai_tags %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File upload</title>
+    <meta name="description" content="File Upload widget with multiple file selection and drag&amp;drop support.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'foundation/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'foundation/css/foundation.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/foundation-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+    <style>
+        i {
+            font-size: 30px;
+        }
+
+    </style>
+    <!-- blueimp Gallery styles -->
+    <link href="{% static 'css/blueimp-gallery.min.css' %}" rel="stylesheet" media="screen">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <!--<link href="{% static 'css/jquery.fileupload-ui.css' %}" rel="stylesheet" media="screen">-->
+
+    {% render_block "css" %}
+
+    <script type="text/javascript" src="{% static 'js/vendor/modernizr.js' %}"></script>
+
+</head>
+<body>
+{% block content %}{% endblock %}
+
+
+<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script type="text/javascript" src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script type="text/javascript" src="{% static 'js/tmpl.min.js' %}"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script type="text/javascript" src="{% static 'js/load-image.min.js' %}"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script type="text/javascript" src="{% static 'js/canvas-to-blob.min.js' %}"></script>
+<!-- blueimp Gallery script -->
+<script type="text/javascript" src="{% static 'js/jquery.blueimp-gallery.min.js' %}"></script>
+<!-- The basic File Upload plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload.js' %}"></script>
+<!-- The File Upload processing plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-process.js' %}"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-image.js' %}"></script>
+<!-- The File Upload audio preview plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-audio.js' %}"></script>
+<!-- The File Upload video preview plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-video.js' %}"></script>
+<!-- The File Upload validation plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-validate.js' %}"></script>
+<!-- The File Upload user interface plugin -->
+<script type="text/javascript" src="{% static 'js/jquery.fileupload-ui.js' %}"></script>
+<!-- The main application script -->
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/locale.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/csrf.js' %}"></script>
+
+{% render_block "js" %}
+
+</body>
+</html>

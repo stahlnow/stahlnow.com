@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block main %}
+    <div class="row full">
+        <div class="small-12 large-6 columns">
+            <div class="blog_title">{{ project.title }}</div>
+            {% include "projects/subline.html" %}
+            <p>
+                <i>{{ project.tease|safe }}</i>
+            </p>
+            <p>
+                {{ project.body|safe }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
