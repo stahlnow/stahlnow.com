@@ -1,12 +1,16 @@
 /*********************************************
  Stylewars III
  *********************************************/
-body {
+ body {
     background-color: #000; /* or #55f , yeah */
     color: #f5f5f5;
     font-family: 'Open Sans';
 }
 
+img {
+    width: 755px;
+    height: auto !important;
+}
 
 canvas {
     overflow: hidden;
@@ -87,6 +91,33 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
     0 0.5em 0 0 white;
 }
 
+.my-flex-video {
+  position: relative;
+  padding-top: 1.5625rem;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.my-flex-video.widescreen {
+    padding-bottom: 56.34%;
+}
+
+.my-flex-video.vimeo {
+    padding-top: 0;
+}
+.my-flex-video iframe,
+.my-flex-video object,
+.my-flex-video embed,
+.my-flex-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #logo {
 
 }
@@ -125,6 +156,8 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
 .threejs {
     position: absolute;
     overflow: hidden;
+    width: 100%;
+    height: auto;
 }
 
 /*

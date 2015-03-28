@@ -6,7 +6,7 @@
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
-    config.extraPlugins = 'oembed,widget,leaflet,codesnippet';
+    config.extraPlugins = 'video,oembed,widget,leaflet,codesnippet';
 
     config.oembed_maxWidth = '715';
     config.oembed_WrapperClass = 'flex-video';
