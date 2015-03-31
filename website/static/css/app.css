@@ -91,6 +91,10 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
     0 0.5em 0 0 white;
 }
 
+.gallery {
+    cursor: pointer;
+}
+
 .my-flex-video {
   position: relative;
   padding-top: 1.5625rem;
@@ -266,18 +270,32 @@ a.blog_title:hover:before {
     margin-bottom: -15px;
 }
 
-/* projects */
-@-webkit-keyframes spin {
-    100% {transform: rotate(1turn); }
+/* mobile style fixes */
+@media only screen and (max-width: 40em) {
+    .my-flex-video { /* hide video elements for mobile */
+        display: none;
+    }
+
+    #logo {
+        left: -10px;
+    }
 }
+
+/* projects */
 
 @-webkit-keyframes blizzard {
     from {background-color: #110;}
     to {background-color: #af0;}
 }
 
+@keyframes blizzard {
+    from {background-color: #110;}
+    to {background-color: #af0;}
+}
+
 .project_box {
     -webkit-animation: blizzard 0.01s linear 50;
+    animation : blizzard 0.01s linear 50;
 
 }
 
@@ -301,7 +319,9 @@ a.blog_title:hover:before {
     text-transform: uppercase;
 }
 
+
 /* sidebar for large displays */
+
 #sidebar-large-only {
     position: fixed;
     left: 800px;
@@ -310,7 +330,26 @@ a.blog_title:hover:before {
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 1000;
+    margin-bottom: 100px;
 }
+
+
+
+@media (min-width: 1600px) { /* min-width 1921px, xxlarge screens */
+    /* sidebar for large displays */
+    #sidebar-large-only {
+        position: fixed;
+        left: 1000px;
+        top: 100px;
+        width: 330px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 1000;
+        margin-bottom: 100px;
+    }
+}
+
+
 
 .sidebar_title {
     cursor: default;
