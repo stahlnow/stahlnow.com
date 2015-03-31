@@ -87,8 +87,8 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-GALLERY_ROOT = os.path.join(BASE_DIR, 'media/gallery')
-GALLERY_URL = '/media/gallery/'
+FILES_ROOT = os.path.join(BASE_DIR, 'media/files')
+FILES_URL = '/media/files/'
 
 # tastypie
 API_VERSION = 'v1'
