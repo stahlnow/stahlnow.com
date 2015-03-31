@@ -9,6 +9,7 @@
         var height = $canvas.height();
 
         var image_paths = options.images;
+        var image_links = options.links;
         var display_time = options.display_time || 7000;
         var fade_time = Math.min(display_time / 2, options.fade_time || 1000);
         var solid_time = display_time - (fade_time * 2);
@@ -20,9 +21,10 @@
 
         var images = [];
         $(image_paths).each(function(i, image_path){
-            images.push({path:image_path,
-                         initialized:false,
-                         loaded:false});
+            images.push({
+                path:image_path,
+                initialized:false,
+                loaded:false});
         });
         function get_time() {
             var d = new Date();
@@ -32,10 +34,10 @@
         function interpolate_point(x1, y1, x2, y2, i) {
             // Finds a point between two other points
             return  {x: x1 + (x2 - x1) * i,
-                     y: y1 + (y2 - y1) * i}
-        }
+               y: y1 + (y2 - y1) * i}
+           }
 
-        function interpolate_rect(r1, r2, i) {
+           function interpolate_rect(r1, r2, i) {
             // Blend one rect in to another
             var p1 = interpolate_point(r1[0], r1[1], r2[0], r2[1], i);
             var p2 = interpolate_point(r1[2], r1[3], r2[2], r2[3], i);
@@ -51,9 +53,9 @@
             var scalew = w * scale;
             var scaleh = h * scale;
             return [cx - scalew/2,
-                    cy - scaleh/2,
-                    cx + scalew/2,
-                    cy + scaleh/2];
+            cy - scaleh/2,
+            cx + scalew/2,
+            cy + scaleh/2];
         }
 
         function fit(src_w, src_h, dst_w, dst_h) {
@@ -138,6 +140,10 @@
                     ctx.restore();
                 }
             }
+
+            $canvas[0].addEventListener( "click", function ( e ) {
+                window.location = image_links[image_index];
+            });
         }
 
         function clear() {
