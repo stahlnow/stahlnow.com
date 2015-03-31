@@ -1,16 +1,16 @@
 from django import template
 import random
 
-from gallery.models import File
+from gallery.models import Image
 
 register = template.Library()
 
 
 @register.inclusion_tag('gallery/templatetags/gallery_inline.html', takes_context=True)
 def gallery_inline(context):
-    files = File.objects.all()
+    images = Image.objects.all()
 
-    context['files'] = files
+    context['images'] = images
 
     return context
 

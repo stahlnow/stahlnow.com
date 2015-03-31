@@ -11,17 +11,13 @@
                 $(".gallery").each(function(index) {
 
                     $(this).kenburns({
-                        images:
-                        [
-                        {% for file in files %}
-                        '/media/gallery/{{ file.file }}',
-                        {% endfor %}
-                        ],
+                        images: [{% for image in images %}'/media/files/{{ image.image }}',{% endfor %}],
+                        links: [{% for image in images %}'{{ image.link }}',{% endfor %}],
                         frames_per_second: 30,
                         display_time: 7000,
                         fade_time: 1000,
                         zoom: 2,
-                        background_color:'#ffffff',
+                        background_color:'#000000',
                         post_render_callback: function($canvas, context) {
                             /*
                             // Called after the effect is rendered

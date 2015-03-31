@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from gallery.models import File
+from gallery.models import Image
 
 
-class FileAdmin(admin.ModelAdmin):
+class ImageAdmin(admin.ModelAdmin):
     readonly_fields = ('image_tag',)
-    list_display = ('file', 'image_tag', 'created')
+    list_display = ('image', 'image_tag', 'created')
 
 
-admin.site.register(File, FileAdmin)
+admin.site.register(Image, ImageAdmin)
