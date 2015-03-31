@@ -9,7 +9,7 @@
                 <a href="{% url 'project_detail' slug=projects.0.slug %}" rel="bookmark" title="{{projects.0.title}}">
                     <div class="project_box">
                         <div class="project_title">{{ projects.0.title }}</div>
-                        <img src="{{projects.0.teaser.url}}"  />
+                        <img src="{{projects.0.teaser.file.url}}"  />
                     </div>
                 </a>
             </li>
@@ -17,7 +17,7 @@
                 <a href="{% url 'project_detail' slug=projects.1.slug %}" rel="bookmark" title="{{projects.1.title}}">
                     <div class="project_box">
                         <div class="project_title">{{ projects.1.title }}</div>
-                        <img src="{{projects.1.teaser.url}}"/>
+                        <img src="{{projects.1.teaser.file.url}}"/>
                     </div>
                 </a>
             </li>
@@ -32,7 +32,7 @@
                 <a href="{% url 'project_detail' slug=project.slug %}" rel="bookmark" title="{{project.title}}">
                     <div class="project_box">
                         <div class="project_title">{{ project.title }}</div>
-                        <img src="{{project.teaser.url}}" />
+                        <img src="{{project.teaser.file.url}}" />
                     </div>
                 </a>
             </li>

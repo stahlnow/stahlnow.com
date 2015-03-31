@@ -2,15 +2,14 @@ from django.contrib import admin
 from adminsortable.admin import SortableAdminMixin
 from projects.models import Project, Category
 
+from fileupload.models import File
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Category, CategoryAdmin)
 
-
 class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
-
     list_display = ('title', 'publish', 'status')
     list_filter = ('publish', 'category', 'status')
     search_fields = ('title', 'body')

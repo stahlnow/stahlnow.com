@@ -3,11 +3,14 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 
+from django.conf import settings
+
 from projects.managers import PublicManager
 
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 
+from fileupload.models import File
 
 class Category(models.Model):
     """Category model."""
@@ -34,7 +37,7 @@ class Project(models.Model):
     slug = models.SlugField(_('slug'), unique_for_date='publish')
     author = models.ForeignKey(User)
     body = RichTextField(_('body'), )
-    teaser = models.ImageField(_('teaser'), blank=False)
+    teaser = models.ForeignKey(File, blank=True, null=True, on_delete=models.SET_NULL)
     status = models.IntegerField(_('status'), choices=STATUS_CHOICES, default=2)
     allow_comments = models.BooleanField(_('allow comments'), default=True)
     publish = models.DateTimeField(_('publish'), default=now)
@@ -44,6 +47,12 @@ class Project(models.Model):
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
     tags = TaggableManager()
     objects = PublicManager()
+
+    def image_tag(self):
+        return u'<img src="%s" width="400px" />' % (settings.FILES_URL + self.teaser.file.url)
+
+    image_tag.short_description = 'Teaser'
+    image_tag.allow_tags = True
 
     class Meta:
         verbose_name = _('project')
