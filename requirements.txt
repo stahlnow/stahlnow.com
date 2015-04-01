@@ -6,7 +6,6 @@ django-admin-sortable2==0.3.1
 django-appconf==0.6
 django-bower==5.0.1
 django-braces==1.4.0
-django-ckeditor==4.4.6
 django-classy-tags==0.5.1
 django-compressor==1.4
 django-endless-pagination==2.0
