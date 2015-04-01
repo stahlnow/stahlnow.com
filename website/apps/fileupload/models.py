@@ -11,6 +11,8 @@ from django.dispatch import receiver
 
 from taggit.managers import TaggableManager
 
+from fileupload.image import pillow_backend as backend
+
 file_store = FileSystemStorage(
     location=settings.FILES_ROOT, base_url=settings.FILES_URL)
 
@@ -25,7 +27,7 @@ class File(models.Model):
     created = CreationDateTimeField()
     updated = ModificationDateTimeField()
     file = models.FileField(upload_to=generate_file_path, storage=file_store)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     class Meta:
         verbose_name = _('file')
@@ -49,15 +51,33 @@ class File(models.Model):
         super(File, self).delete(*args, **kwargs)
 
     def file_tag(self):
-        n, ext = os.path.splitext(self.file.name)
-        if (ext == '.jpg' or ext == 'jpeg' or ext == 'gif' or ext == '.png'):
-            return u'<img src="%s" width="400px" />' % (settings.FILES_URL + self.file.name)
-        elif (ext == '.mp4' or ext == '.webm'):
-            return u'<video autoplay loop muted src="%s" />' % (settings.FILES_URL + self.file.name)
+        if (is_image(self.file.url)):
+            return u'<img src="%s" />' % (self.file.url)
+        elif (is_movie(self.file.url)):
+            return u'<video autoplay loop muted src="%s" />' % (self.file.url)
 
-    file_tag.short_description = 'File'
+    def file_tag_thumb(self):
+        if (is_image(self.file.url)):
+            if os.path.isfile(unicode('{0}_thumb{1}').format(*os.path.splitext(self.file.url))):
+                return u'<a href="%s"><img src="%s" /></a>' % (self.pk, unicode('{0}_thumb{1}').format(*os.path.splitext(self.file.url)))
+            else:
+                return u'<a href="%s"><img src="%s" width=150px /></a>' % (self.pk, self.file.url)
+        elif (is_movie(self.file.url)):
+            return u'<a href="%s"><video width="300px" autoplay loop muted src="%s" /></a>' % (self.pk, self.file.url)
+
+    file_tag.short_description = 'Content'
     file_tag.allow_tags = True
+    file_tag_thumb.short_description = 'Preview'
+    file_tag_thumb.allow_tags = True
 
+
+def is_image(path):
+    ext = path.split('.')[-1].lower()
+    return ext in ['jpg', 'jpeg', 'png', 'gif', 'svg']
+
+def is_movie(path):
+    ext = path.split('.')[-1].lower()
+    return ext in ['mp4', 'webm']
 
 @receiver(models.signals.post_delete, sender=File)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
@@ -85,3 +105,10 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
     if not old_file == new_file:
         if os.path.isfile(old_file.path):
             os.remove(old_file.path)
+
+@receiver(models.signals.post_save, sender=File)
+def generate_thumbnail(sender, instance, **kwargs):
+    if instance.file:
+        if os.path.isfile(instance.file.path):
+            if backend.should_create_thumbnail(instance.file.path):
+                backend.create_thumbnail(instance.file.path)
