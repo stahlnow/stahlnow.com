@@ -104,7 +104,9 @@ BOWER_INSTALLED_APPS = (
 )
 
 # wysiwyg settings
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_ROOT = os.path.join(BASE_DIR, 'media/files')
+CKEDITOR_URL = '/media/files/'
+#CKEDITOR_UPLOAD_PATH = 'files/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
