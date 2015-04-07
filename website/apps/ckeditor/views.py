@@ -74,3 +74,11 @@ def browse(request):
         'files': get_files_browse_urls(request.user),
     })
     return render_to_response('browse.html', context)
+
+def get_image_files():
+    files = []
+    items = File.objects.all()
+    for f in items:
+        if (is_image(f.file.url)):
+            files.append(f.file.path)
+    return files

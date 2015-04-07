@@ -17,7 +17,6 @@ class Command(NoArgsCommand):
         if getattr(settings, 'CKEDITOR_IMAGE_BACKEND', None):
             backend = get_backend()
             for image in get_image_files():
-                image = os.path.join(settings.CKEDITOR_ROOT, image)
                 if not self._thumbnail_exists(image):
                     self.stdout.write("Creating thumbnail for %s" % image)
                     try:
