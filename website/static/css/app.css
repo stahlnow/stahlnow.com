@@ -253,29 +253,19 @@ a.blog_title:hover:before {
 }
 
 /* projects */
-
-@-webkit-keyframes blizzard {
-    from {background-color: #110;}
-    to {background-color: #af0;}
-}
-
-@keyframes blizzard {
-    from {background-color: #110;}
-    to {background-color: #af0;}
-}
-
 .project_box {
-    -webkit-animation: blizzard 0.01s linear 50;
-    animation : blizzard 0.01s linear 50;
-
+     background-color: #110;
+  -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+     -moz-transition: all 0.3s ease-out;  /* FF4+ */
+      -ms-transition: all 0.3s ease-out;  /* IE10 */
+       -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+          transition: all 0.3s ease-out;
 }
 
 .project_box:hover {
-    /*background-color: #110;*/
+    background-color: rgba(170, 255, 0, 0.5);
     color: #af0;
 }
-
-
 
 
 .project_title {
