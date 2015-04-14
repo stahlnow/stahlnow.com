@@ -3,7 +3,7 @@
 {% lazy_paginate 100 projects %}
 
 <div class="row full">
-    <div class="large-6 medium-12 small-12 columns">
+    <div class="large-7 medium-6 small-12 columns">
         <ul class="large-block-grid-2" data-equalizer>
             <li class="project {{projects.0.category.slug}}" data-equalizer-watch>
                 <a href="{% url 'project_detail' slug=projects.0.slug %}" rel="bookmark" title="{{projects.0.title}}">
@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class="row full">
-    <div class="large-6 medium-12 small-12 columns">
+    <div class="large-7 medium-6 small-12 columns">
         <ul class="large-block-grid-3" data-equalizer>
             {% for project in projects|slice:"2:" %}
             <li class="project {{project.category.slug}}" data-equalizer-watch>

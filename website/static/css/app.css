@@ -294,7 +294,19 @@ a.blog_title:hover:before {
     margin-bottom: 100px;
 }
 
-
+@media (min-width: 1200px) { /* min-width 1921px, xxlarge screens */
+    /* sidebar for large displays */
+    #sidebar-large-only {
+        position: fixed;
+        left: 950px;
+        top: 100px;
+        width: 330px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 1000;
+        margin-bottom: 100px;
+    }
+}
 
 @media (min-width: 1600px) { /* min-width 1921px, xxlarge screens */
     /* sidebar for large displays */
