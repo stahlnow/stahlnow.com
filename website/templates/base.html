@@ -134,7 +134,7 @@
             // sticky footer
             $(window).bind("load", function () {
 
-                $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+                //$('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
 
                 var footer = $("#footer");
                 var pos = footer.position();
@@ -147,6 +147,8 @@
                     });
                 }
             });
+
+            $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
 
             $(window).resize(function(){
                 $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
