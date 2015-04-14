@@ -28,6 +28,7 @@ INSTALLED_APPS = (
     'taggit',
     'taggit_templatetags',
     'endless_pagination',
+    'easy_thumbnails',
     'adminsortable',
     'fileupload',
     'uploader',
@@ -89,6 +90,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 FILES_ROOT = os.path.join(BASE_DIR, 'media/files')
 FILES_URL = '/media/files/'
+
+
+THUMBNAIL_BASEDIR = 'files'
 
 # tastypie
 API_VERSION = 'v1'
