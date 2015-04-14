@@ -3,11 +3,9 @@
 {% load sekizai_tags %}
 {% block main %}
 <div class="row full" style="padding-left: 2px;">
-    <div class="small-12 large-6 columns">
-        {{ page.body|safe }}
-        {% addtoblock "js" %}
-        {{ page.script|safe }}
-        {% endaddtoblock %}
-    </div>
+    {{ page.body|safe }}
+    {% addtoblock "js" %}
+    {{ page.script|safe }}
+    {% endaddtoblock %}
 </div>
 {% endblock %}

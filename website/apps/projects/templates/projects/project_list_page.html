@@ -2,46 +2,42 @@
 {% lazy_paginate 100 projects %}
 
 <div class="row full">
-    <div class="large-7 medium-6 small-12 columns">
-        <ul class="large-block-grid-2">
-            <li class="project {{projects.0.category.slug}}">
-                <a href="{% url 'project_detail' slug=projects.0.slug %}" rel="bookmark" title="{{projects.0.title}}">
-                    <div class="project_box">
-                        <div class="project_title">{{ projects.0.title }}</div>
-                        <img class="project_teaser" src="{% thumbnail projects.0.teaser.file 640x480 crop %}" alt="" />
-                    </div>
-                </a>
-            </li>
-            <li class="project {{projects.1.category.slug}}" data-equalizer-watch>
-                <a href="{% url 'project_detail' slug=projects.1.slug %}" rel="bookmark" title="{{projects.1.title}}">
-                    <div class="project_box">
-                        <div class="project_title">{{ projects.1.title }}</div>
-                        <img class="project_teaser" src="{% thumbnail projects.1.teaser.file 640x480 crop %}" alt="" />
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <ul class="large-block-grid-2">
+        <li class="project {{projects.0.category.slug}}">
+            <a href="{% url 'project_detail' slug=projects.0.slug %}" rel="bookmark" title="{{projects.0.title}}">
+                <div class="project_box">
+                    <div class="project_title">{{ projects.0.title }}</div>
+                    <img class="project_teaser" src="{% thumbnail projects.0.teaser.file 640x480 crop %}" alt="" />
+                </div>
+            </a>
+        </li>
+        <li class="project {{projects.1.category.slug}}" data-equalizer-watch>
+            <a href="{% url 'project_detail' slug=projects.1.slug %}" rel="bookmark" title="{{projects.1.title}}">
+                <div class="project_box">
+                    <div class="project_title">{{ projects.1.title }}</div>
+                    <img class="project_teaser" src="{% thumbnail projects.1.teaser.file 640x480 crop %}" alt="" />
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>
 <div class="row full">
-    <div class="large-7 medium-6 small-12 columns">
-        <ul class="large-block-grid-3">
-            {% for project in projects|slice:"2:" %}
+    <ul class="large-block-grid-3">
+        {% for project in projects|slice:"2:" %}
 
-            <li class="project {{project.category.slug}}">
+        <li class="project {{project.category.slug}}">
 
-                <a href="{% url 'project_detail' slug=project.slug %}" rel="bookmark" title="{{project.title}}">
-                    <div class="project_box">
-                        <div class="project_title">{{ project.title }}</div>
-                        <img class="project_teaser" src="{% thumbnail project.teaser.file 320x240 crop %}" alt="" />
-                    </div>
-                </a>
+            <a href="{% url 'project_detail' slug=project.slug %}" rel="bookmark" title="{{project.title}}">
+                <div class="project_box">
+                    <div class="project_title">{{ project.title }}</div>
+                    <img class="project_teaser" src="{% thumbnail project.teaser.file 640x480 crop %}" alt="" />
+                </div>
+            </a>
 
-            </li>
+        </li>
 
-            {% endfor %}
-        </ul>
-    </div>
+        {% endfor %}
+    </ul>
 </div>
 
-{% show_more "<div class='row left'><div class='button load_more large-4 medium-4 small-4 columns'>load more</div></div>" "<div class='row left'><div class='button load_more large-4 medium-4 small-4 columns'>loading…</div></div>"%}
+{% show_more "<div class='row left'><div class='button load_more small-12 medium-12 large-12 columns'>load more</div></div>" "<div class='row left'><div class='button load_more small-12 medium-12 large-12 columns'>loading…</div></div>"%}

@@ -1,6 +1,7 @@
 {% load sekizai_tags %}
+        <div id="gallery_wrapper"></div>
 
-        <canvas class="gallery" {% if id == "sidebar-mobile" %} width=232px height=150px {% else %} width=312px height=150px {% endif %}>
+        <canvas {% if id == "sidebar-mobile" %} class="gallery" width=232px height=150px {% else %} class="gallery large" width=500px height=150px {% endif %}>
             <p>Your browser doesn't support canvas! Try Chrome, Firefox or Opera</p>
         </canvas>
 

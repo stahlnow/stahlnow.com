@@ -3,16 +3,14 @@
 {% lazy_paginate posts %}
 {% for post in posts %}
 <div class="row full">
-    <div class="small-12 medium-6 large-7 columns">
-        <a class="blog_title" href="{% url 'post_detail' slug=post.slug %}" rel="bookmark" title="{% trans 'permalink' %}">{{ post.title }}</a>
-        {% include "blog/subline.html" %}
-        {% if post.tease %}
-        {{ post.tease|safe }}<br />
-        <a href="{% url 'post_detail' slug=post.slug %}" title="{% trans 'View this post' %}">Read more...</a>
-        {% else %}
-        {{ post.body|safe }}
-        {% endif %}
-    </div>
+    <a class="blog_title" href="{% url 'post_detail' slug=post.slug %}" rel="bookmark" title="{% trans 'permalink' %}">{{ post.title }}</a>
+    {% include "blog/subline.html" %}
+    {% if post.tease %}
+    {{ post.tease|safe }}<br />
+    <a href="{% url 'post_detail' slug=post.slug %}" title="{% trans 'View this post' %}">Read more...</a>
+    {% else %}
+    {{ post.body|safe }}
+    {% endif %}
 </div>
 {% endfor %}
-{% show_more "<div class='row left'><div class='button load_more large-4 medium-4 small-4 columns'>load more</div></div>" "<div class='row left'><div class='button load_more large-4 medium-4 small-4 columns'>loading…</div></div>"%}
+{% show_more "<div class='row left'><div class='button load_more small-12 medium-12 large-12 columns'>load more</div></div>" "<div class='row left'><div class='button load_more large-12 medium-12 small-12 columns'>loading…</div></div>"%}

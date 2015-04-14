@@ -3,14 +3,12 @@
 
 {% block main %}
     <div class="row full">
-        <div class="small-12 medium-6 large-7 columns">
-            <div class="blog_title">{{ post.title }}</div>
-            {% include "blog/subline.html" %}
-            {% if post.tease %}
-            <i>{{ post.tease|safe }}</i><br /><br />
-            {% else %}
-            {{ post.body|safe }}
-            {% endif %}
-        </div>
+        <div class="blog_title">{{ post.title }}</div>
+        {% include "blog/subline.html" %}
+        {% if post.tease %}
+        <i>{{ post.tease|safe }}</i><br /><br />
+        {% else %}
+        {{ post.body|safe }}
+        {% endif %}
     </div>
 {% endblock %}

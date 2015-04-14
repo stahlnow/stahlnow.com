@@ -92,7 +92,7 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
     0 0.5em 0 0 white;
 }
 
-.gallery {
+.gallery, .gallery_mobile {
     cursor: pointer;
 }
 
@@ -286,46 +286,6 @@ a.blog_title:hover:before {
 }
 
 
-/* sidebar for large displays */
-
-#sidebar-large-only {
-    position: fixed;
-    left: 900px;
-    top: 100px;
-    width: 330px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 1000;
-    margin-bottom: 100px;
-}
-
-@media (min-width: 1200px) { /* min-width 1921px, xxlarge screens */
-    /* sidebar for large displays */
-    #sidebar-large-only {
-        position: fixed;
-        left: 950px;
-        top: 100px;
-        width: 330px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        z-index: 1000;
-        margin-bottom: 100px;
-    }
-}
-
-@media (min-width: 1600px) { /* min-width 1921px, xxlarge screens */
-    /* sidebar for large displays */
-    #sidebar-large-only {
-        position: fixed;
-        left: 1000px;
-        top: 100px;
-        width: 330px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        z-index: 1000;
-        margin-bottom: 100px;
-    }
-}
 
 
 

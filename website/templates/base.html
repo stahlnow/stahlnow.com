@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div id="nav" class="text-left left show-for-large-up medium-8 large-8 columns">
+                        <div id="nav" class="text-left left show-for-large-up large-8 large-offset-1 end columns">
                             <div class="vblock" style="padding: 0 20px 0 20px;">
                                 <div class="vcentered">
                                     {% load lineage %}
@@ -79,15 +79,17 @@
 
                 <!-- MAIN CONTENT -->
                 <section>
-                    <div style="padding-left: 10px; padding-right: 10px;">
-                        {% block main %}{% endblock %}
+                    <div class="row full" style="padding-left: 20px; padding-right: 10px;">
+                        <div class="small-12 medium-7 large-7 columns">
+                            {% block main %}{% endblock %}
+                        </div>
+
+                        <!-- SIDEBAR -->
+                        <div class="large-3 columns end show-for-large-up">
+                            {% include 'sidebar.html' with id="sidebar-large-only" %}
+                        </div>
                     </div>
                 </section>
-
-                <!-- SIDEBAR -->
-                <div class="show-for-large-up">
-                    {% include 'sidebar.html' with id="sidebar-large-only" %}
-                </div>
 
                 <a class="exit-off-canvas"></a>
 
@@ -131,6 +133,9 @@
 
             // sticky footer
             $(window).bind("load", function () {
+
+                $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+
                 var footer = $("#footer");
                 var pos = footer.position();
                 var height = $(window).height();
@@ -143,6 +148,10 @@
                 }
             });
 
+            $(window).resize(function(){
+                $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+            });
+
             $('#menu_toggle').click(function() {
                 window.scrollTo(0,0);
             });
@@ -151,6 +160,7 @@
                 mailadress = "office" + "@" + "stahlnow.com";
                 location.href="mailto:" + mailadress;
             }
+
 
         </script>
 
