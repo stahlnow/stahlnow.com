@@ -4,6 +4,8 @@ from itertools import chain
 from endless_pagination.views import AjaxListView
 from django.views.generic import DetailView, ListView
 from django.utils import timezone
+from django.db.models import Q
+from django.contrib.contenttypes.models import ContentType
 
 from blog.models import Post
 from projects.models import Project
@@ -38,8 +40,10 @@ class PostListViewByTags(AjaxListView):
     page_template = 'taggeditem_list_page.html'
 
     def get_queryset(self):
+        project_type = ContentType.objects.get(app_label="projects", model="project")
+        post_type = ContentType.objects.get(app_label="blog", model="post")
         tag = Tag.objects.get(name=self.args[0])
-        items = TaggedItem.objects.filter(tag=tag)
+        items = TaggedItem.objects.filter(Q(tag=tag, content_type=project_type) | Q(tag=tag, content_type=post_type))
         items = sorted(items, key=lambda x: x.content_object.publish, reverse=True)
         return items
 
