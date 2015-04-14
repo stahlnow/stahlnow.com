@@ -285,7 +285,7 @@ a.blog_title:hover:before {
 
 #sidebar-large-only {
     position: fixed;
-    left: 800px;
+    left: 900px;
     top: 100px;
     width: 330px;
     overflow-x: hidden;

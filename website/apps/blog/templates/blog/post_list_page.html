@@ -3,7 +3,7 @@
 {% lazy_paginate posts %}
 {% for post in posts %}
 <div class="row full">
-    <div class="small-12 large-6 columns">
+    <div class="small-12 medium-6 large-7 columns">
         <a class="blog_title" href="{% url 'post_detail' slug=post.slug %}" rel="bookmark" title="{% trans 'permalink' %}">{{ post.title }}</a>
         {% include "blog/subline.html" %}
         {% if post.tease %}
