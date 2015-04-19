@@ -8,7 +8,15 @@
 {% if posts %}
 {% include page_template %}
 {% addtoblock "js" %}
-<script>$.endlessPaginate();</script>
+<script>
+    $.endlessPaginate({
+        onCompleted: function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        }
+    });
+</script>
 {% endaddtoblock %}
 
 {% else %}

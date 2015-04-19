@@ -96,6 +96,10 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
     cursor: pointer;
 }
 
+.hljs {
+    height: 800px;
+}
+
 .threejs {
     position: absolute;
     overflow: hidden;
