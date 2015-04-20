@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*',]
 SITE_ID = 1
 
 INSTALLED_APPS = (
