@@ -101,10 +101,16 @@ TASTYPIE_ALLOW_MISSING_SLASH = True
 # bower
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
 BOWER_INSTALLED_APPS = (
-    'backbone',
-    'underscore',
-    'zurb/bower-foundation',
-    'three.js'
+    'backbone#1.2.1',
+    'csshake',
+    'underscore#1.8.3',
+    'jquery-placeholder#2.0.8',
+    'foundation#5.5.2',
+    'modernizr#2.8.3',
+    'fastclick#1.0.3',
+    'jquery#2.1.3',
+    'jquery.cookie#1.4.1',
+    'three.js#0.71.0'
 )
 
 # wysiwyg settings
