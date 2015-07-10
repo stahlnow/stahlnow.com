@@ -258,17 +258,43 @@ a.blog_title:hover:before {
 
 /* projects */
 .project_box {
-    background-color: #110;
+    background-color: #111;
     -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
     -moz-transition: all 0.3s ease-out;  /* FF4+ */
     -ms-transition: all 0.3s ease-out;  /* IE10 */
     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
     transition: all 0.3s ease-out;
+
+    position: relative;
 }
 
 .project_box:hover {
-    background-color: rgba(170, 255, 0, 0.5);
-    color: #af0;
+    background-color: rgba(170, 255, 0, 0.2);
+}
+
+.project_box:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0;
+    height: 100%;
+
+    background: rgba(0,0,0,0);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0)), color-stop(66%, rgba(0,0,0,0.66)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+
+    content: "";
+    transition: width 0.5s;
+}
+
+.project_box:hover:after {
+    width: 100%;
 }
 
 
@@ -373,6 +399,32 @@ code {
  .pink {
     background-color: #f0f;
 }
+
+
+/***********************************
+FANCY STUFF
+************************************/
+.underline {
+    position: relative;
+}
+.underline:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 10px;
+    background-color: #af0;
+    content: "";
+    transition: width 0.2s;
+}
+.underline:hover {
+    /*color: #333;*/
+}
+.underline:hover:after {
+    width: 100%;
+}
+
 
 /***********************************
  Tags
