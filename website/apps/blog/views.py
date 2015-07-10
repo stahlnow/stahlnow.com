@@ -16,10 +16,6 @@ class PostListView(AjaxListView):
     queryset = Post.objects.published()
     context_object_name = 'posts'
 
-    def get_context_data(self, **kwargs):
-        context = super(PostListView, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
 
 class ArchiveListView(ListView):
     context_object_name = 'archiveditems'
