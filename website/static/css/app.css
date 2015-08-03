@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5 {
 }
 
 a, a:hover, a:active, a:focus, a:visited  {
-    color: #af0;
+    color: #f0a;
     text-decoration: none;
 }
 
@@ -41,11 +41,11 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
 }
 
 ::selection {
-    background-color: #af0;
+    background-color: #fff;
 }
 
 ::-moz-selection {
-    background-color: #af0;
+    background-color: #fff;
 }
 
 .row.full {
@@ -168,7 +168,7 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
 
 #nav li.button.small.active a,
 #nav li.button.small a:hover {
-    border-bottom: 3px #af0 solid;
+    border-bottom: 3px #fff solid;
 }
 
 
@@ -269,7 +269,7 @@ a.blog_title:hover:before {
 }
 
 .project_box:hover {
-    background-color: rgba(170, 255, 0, 0.2);
+    /*background-color: rgba(170, 255, 0, 0.2);*/
 }
 
 .project_box:after {
@@ -279,7 +279,7 @@ a.blog_title:hover:before {
     bottom: 0px;
     width: 0;
     height: 100%;
-
+/*
     background: rgba(0,0,0,0);
     background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0)), color-stop(66%, rgba(0,0,0,0.66)), color-stop(100%, rgba(0,0,0,1)));
@@ -288,7 +288,7 @@ a.blog_title:hover:before {
     background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 66%, rgba(0,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
-
+*/
     content: "";
     transition: width 0.5s;
 }
@@ -304,9 +304,11 @@ a.blog_title:hover:before {
     left: 0px;
     width: 100%;
 
-    padding: 10px 10px 10px 10px;
+    color: #fff;
+
+    padding: 5px;
     font-size: 15px;
-    line-height: 2rem;
+    line-height: 1rem;
     text-transform: uppercase;
 }
 
@@ -354,7 +356,7 @@ a.blog_title:hover:before {
 #footer-stripe {
     margin-top: -14px;
     height: 33px;
-    background-color: #af0;
+    background-color: #fff;
 }
 
 /* VERTICALLY CENTERED TRICK */
@@ -379,12 +381,12 @@ a.blog_title:hover:before {
 }
 
 .button {
-    background-color: #110;
+    background-color: #303;
     color: #eee;
 }
 
 .button:hover {
-    background-color: #af0;
+    background-color: #fff;
     color: #333;
 }
 
@@ -414,7 +416,7 @@ FANCY STUFF
     bottom: -10px;
     width: 0;
     height: 10px;
-    background-color: #af0;
+    background-color: #fff;
     content: "";
     transition: width 0.2s;
 }
