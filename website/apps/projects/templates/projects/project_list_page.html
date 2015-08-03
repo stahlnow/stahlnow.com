@@ -2,7 +2,7 @@
 {% lazy_paginate 100 projects %}
 
 <div class="row full">
-    <ul class="large-block-grid-2">
+    <ul class="large-block-grid-3">
         <li class="project {{projects.0.category.slug}}">
             <a href="{% url 'project_detail' slug=projects.0.slug %}" rel="bookmark" title="{{projects.0.title}}">
                 <div class="project_box shake shake-little">
@@ -19,11 +19,19 @@
                 </div>
             </a>
         </li>
+        <li class="project {{projects.2.category.slug}}" data-equalizer-watch>
+            <a href="{% url 'project_detail' slug=projects.2.slug %}" rel="bookmark" title="{{projects.2.title}}">
+                <div class="project_box shake shake-little">
+                    <div class="project_title text-center">{{ projects.2.title }}</div>
+                    <img class="project_teaser" src="{% thumbnail projects.2.teaser.file 640x480 crop %}" alt="" />
+                </div>
+            </a>
+        </li>
     </ul>
 </div>
 <div class="row full">
-    <ul class="large-block-grid-3">
-        {% for project in projects|slice:"2:" %}
+    <ul class="large-block-grid-4">
+        {% for project in projects|slice:"3:" %}
 
         <li class="project {{project.category.slug}}">
 
