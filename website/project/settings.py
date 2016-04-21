@@ -32,6 +32,8 @@ INSTALLED_APPS = (
     'adminsortable',
     'fileupload',
     'uploader',
+    'filer',
+    'mptt',
     'blog',
     'projects',
     'pages',
@@ -65,7 +67,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # i18n
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Zurich'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -93,6 +95,28 @@ FILES_URL = '/media/files/'
 
 
 THUMBNAIL_BASEDIR = 'files'
+
+# filer
+FILER_STORAGES = {
+    'public': {
+        'main': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': os.path.join(BASE_DIR, 'media/files'),
+                'base_url': '/media/files/',
+            },
+            'UPLOAD_TO': 'filer.utils.generate_filename.randomized',
+            'UPLOAD_TO_PREFIX': 'public',
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': os.path.join(BASE_DIR, 'media/files'),
+                'base_url': '/media/files/',
+            },
+        },
+    },
+}
 
 # tastypie
 API_VERSION = 'v1'
