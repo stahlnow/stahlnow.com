@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5 {
 }
 
 a, a:hover, a:active, a:focus, a:visited  {
-    color: #f0a;
+    color: #0f0;
     text-decoration: none;
 }
 
@@ -41,11 +41,11 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
 }
 
 ::selection {
-    background-color: #fff;
+    background-color: #0f0;
 }
 
 ::-moz-selection {
-    background-color: #fff;
+    background-color: #0f0;
 }
 
 .row.full {
@@ -65,9 +65,17 @@ ul.links a, ul.links a:hover, ul.links a:active, ul.links a:visited {
 
 #menu_toggle, #logo, #nav {
     /* overriding foundation tab-bar */
-    height: 100px;
-    line-height: 100px;
+    /*height: 100px;
+    line-height: 100px;*/
     color: #fff;
+}
+
+#nav {
+    padding-top: 30px;
+}
+#logo {
+    padding-top: 15px;
+    padding-left:25px;
 }
 
 #menu_toggle {
@@ -253,12 +261,22 @@ a.blog_title:hover:before {
 
     #logo {
         left: -10px;
+        padding-top: 0px;
+    }
+    #menu_toggle {
+        padding-top: 10px;
     }
 }
 
 /* projects */
+.project.art, .project.professional {
+    padding: 0;
+}
+
 .project_box {
-    background-color: #111;
+
+
+    /*background-color: #111;*/
     -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
     -moz-transition: all 0.3s ease-out;  /* FF4+ */
     -ms-transition: all 0.3s ease-out;  /* IE10 */
@@ -306,19 +324,12 @@ a.blog_title:hover:before {
 
     color: #fff;
 
-    padding: 5px;
+    padding-bottom: 2px;
+
     font-size: 15px;
     line-height: 1rem;
     text-transform: uppercase;
 }
-
-.project_teaser {
-    padding: 5px;
-
-}
-
-
-
 
 
 .sidebar_title {
@@ -347,6 +358,10 @@ a.blog_title:hover:before {
     padding: 10px;
 }
 
+#footer {
+    margin-top: 25px;
+}
+
 #footer p {
     font-size: 0.8rem;
     color: #333;
@@ -356,7 +371,7 @@ a.blog_title:hover:before {
 #footer-stripe {
     margin-top: -14px;
     height: 33px;
-    background-color: #101;
+    background-color: #030;
 }
 
 /* VERTICALLY CENTERED TRICK */
@@ -381,13 +396,13 @@ a.blog_title:hover:before {
 }
 
 .button {
-    background-color: #303;
+    background-color: #333;
     color: #eee;
 }
 
 .button:hover {
-    background-color: #fff;
-    color: #333;
+    background-color: #222;
+    color: #eee;
 }
 
 code {

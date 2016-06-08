@@ -11,15 +11,17 @@ from django.dispatch import receiver
 
 from taggit.managers import TaggableManager
 
-from fileupload.models import File
+from filer.fields.image import FilerImageField
 
 class Image(models.Model):
     uuid = UUIDField()
     created = CreationDateTimeField()
     updated = ModificationDateTimeField()
-    image = models.ForeignKey(File, blank=True, null=True)
+    image = FilerImageField(blank=True, null=True)
     caption = models.TextField(_('caption'), blank=True, null=True)
     link = models.URLField(_('link'), blank=True, null=True)
+
+    gallery = models.ForeignKey('Gallery', related_name='images', null=True, blank=True)
 
     class Meta:
         verbose_name = _('image')
@@ -38,3 +40,22 @@ class Image(models.Model):
     image_tag.short_description = 'Image'
     image_tag.allow_tags = True
 
+class Gallery(models.Model):
+    uuid = UUIDField()
+    created = CreationDateTimeField()
+    updated = ModificationDateTimeField()
+    name = models.CharField(max_length=1024)
+
+    class Meta:
+        verbose_name = _('gallery')
+        verbose_name_plural = _('galleries')
+        db_table = 'gallery_galleries'
+        ordering = ('-created',)
+
+    def __unicode__(self):
+        return self.name
+
+    @property
+    def images(self):
+        if self.images.exists():
+            return self.images.all()

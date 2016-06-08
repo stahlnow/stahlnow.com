@@ -22,152 +22,150 @@
 
 </head>
 <body>
-    <div id="wrapper">
-        <div class="off-canvas-wrap" data-offcanvas>
-            <div class="inner-wrap">
-                <header style="margin-bottom: 100px;">
-                    <div class="row full header">
+<div id="wrapper">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <header>
+                <div class="row full header">
 
-                        <div id="menu_toggle" class="hide-for-large-up small-1 columns">
-                            <div class="vblock">
-                                <div class="vcentered">
-                                    <a class="left-off-canvas-toggle box-shadow-menu" href="#"></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="logo" class="text-left small-10 medium-3 large-3 columns">
-                            <div class="vblock" style="padding: 0 20px 0 10px;">
-                                <div class="vcentered">
-                                    <a href="/">STAHL<span style="color:#111;"><i>NOW!</i></span></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="nav" class="text-left left show-for-large-up large-8 large-offset-1 end columns">
-                            <div class="vblock" style="padding: 0 20px 0 20px;">
-                                <div class="vcentered">
-                                    {% load lineage %}
-                                    <div id="top_nav">
-                                        <ul class="button-group radius round">
-                                            <li class="button small {% ancestor '/$' %} {% ifancestor '/blog/' %} active {% endifancestor %}"><a href="/blog">blog</a></li>
-                                            <li class="button small {% ancestor '/projects/' %}"><a href="/projects">projects</a></li>
-                                            <li class="button small {% ancestor '/network/' %}"><a href="/network">network</a></li>
-                                            <li class="button small {% ancestor '/about/' %}"><a href="/about">about</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                    <div id="menu_toggle" class="hide-for-large-up small-1 columns">
+                        <div class="vblock">
+                            <div class="vcentered">
+                                <a class="left-off-canvas-toggle box-shadow-menu" href="#"></a>
                             </div>
                         </div>
                     </div>
-                </header>
 
-                <!-- MOBILE MENU -->
-                <aside class="left-off-canvas-menu">
-                    <ul class="off-canvas-list">
-                        {% load lineage %}
-                        <li class="{% ancestor '/$' %} {% ifancestor '/blog/' %} active {% endifancestor %}"><a href="/blog">blog</a></li>
-                        <li class="{% ancestor '/projects/' %}"><a href="/projects">projects</a></li>
-                        <li class="{% ancestor '/network/' %}"><a href="/network">network</a></li>
-                        <li class="{% ancestor '/about/' %}"><a href="/about">about</a></li>
-                    </ul>
-
-                    <!-- SIDEBAR -->
-                    <div class="hide-for-large-up">
-                        {% include 'sidebar.html'  with id="sidebar-mobile" %}
+                    <div id="logo" class="text-left small-10 medium-3 large-3 columns">
+                        <a href="/">STAHL<span style="color:#fff;"><i>NOW!</i></span></a>
                     </div>
-                </aside>
 
-                <!-- MAIN CONTENT -->
-                <section>
-                    <div class="row full" style="padding-left: 20px; padding-right: 10px;">
-                        <div class="small-12 medium-7 large-7 columns">
-                            {% block main %}{% endblock %}
+                    <div id="nav" class="text-left left show-for-large-up large-8 large-offset-1 end columns">
+                        <div class="vblock" style="padding: 0 20px 0 20px;">
+                            <div class="vcentered">
+                                {% load lineage %}
+                                <div id="top_nav">
+                                    <ul class="button-group radius round">
+                                        <li class="button small {% ancestor '/$' %} {% ifancestor '/blog/' %} active {% endifancestor %}">
+                                            <a href="/blog">blog</a></li>
+                                        <li class="button small {% ancestor '/projects/' %}"><a href="/projects">projects</a>
+                                        </li>
+                                        <li class="button small {% ancestor '/network/' %}"><a
+                                                href="/network">network</a></li>
+                                        <li class="button small {% ancestor '/about/' %}"><a href="/about">about</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- SIDEBAR -->
-                        <div class="large-3 columns end show-for-large-up">
-                            {% include 'sidebar.html' with id="sidebar-large-only" %}
-                        </div>
-                    </div>
-                </section>
-
-                <a class="exit-off-canvas"></a>
-
-            </div>
-
-            <!-- FOOTER -->
-            <div id="footer">
-                <div class="row full">
-                    <p>
-                        <a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img
-                            src="http://media.djangopony.com/img/small/badge.png" alt="pony powered" style="width:210px;height:65px;"></a>
-                            <br/>
-                            This page is best viewed at night, fullscreen with the lights down. Don't snap to grid. Online since
-                            2009. &#x1F63D;
-                        </p>
-
-                        <div id="footer-stripe"></div>
                     </div>
                 </div>
-            </div>
+            </header>
 
+            <!-- MOBILE MENU -->
+            <aside class="left-off-canvas-menu">
+                <ul class="off-canvas-list">
+                    {% load lineage %}
+                    <li class="{% ancestor '/$' %} {% ifancestor '/blog/' %} active {% endifancestor %}"><a
+                            href="/blog">blog</a></li>
+                    <li class="{% ancestor '/projects/' %}"><a href="/projects">projects</a></li>
+                    <li class="{% ancestor '/network/' %}"><a href="/network">network</a></li>
+                    <li class="{% ancestor '/about/' %}"><a href="/about">about</a></li>
+                </ul>
+
+                <!-- SIDEBAR -->
+                <div class="hide-for-large-up">
+                    {% include 'sidebar.html'  with id="sidebar_mobile" %}
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <section style="margin-top: 100px;">
+                <div class="row full" style="padding-left: 25px; padding-right: 10px;">
+                    <div class="small-12 medium-7 large-7 columns">
+                        {% block main %}{% endblock %}
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <div class="large-3 columns end show-for-large-up">
+                        {% include 'sidebar.html' with id="sidebar-large-only" %}
+                    </div>
+                </div>
+            </section>
+
+            <a class="exit-off-canvas"></a>
 
         </div>
 
-        <script type="text/javascript" src="{% static 'foundation/js/vendor/jquery.js' %}"></script>
+        <!-- FOOTER -->
+        <div id="footer">
+            <div class="row full">
+                <p>
+                    This page is best viewed at night, fullscreen with the lights down. Don't snap to grid. Online since
+                    2009. &#x1F63D;
+                </p>
 
-        <!-- for the sidebar gallery -->
-        <script type="text/javascript" src="{% static 'js/kenburns.js' %}"></script>
+                <div id="footer-stripe"></div>
+            </div>
+        </div>
+    </div>
 
-        <script type="text/javascript" src="{% static 'foundation/js/foundation.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'foundation/js/foundation/foundation.equalizer.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/endless-pagination.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
 
-        <!-- initialize foundation framework, fix footer -->
-        <script type="text/javascript" >
-            $(document).foundation();
+</div>
 
-            hljs.initHighlightingOnLoad();
+<script type="text/javascript" src="{% static 'foundation/js/vendor/jquery.js' %}"></script>
 
-            // sticky footer
-            $(window).bind("load", function () {
+<!-- for the sidebar gallery -->
+<script type="text/javascript" src="{% static 'js/kenburns.js' %}"></script>
 
-                //$('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+<script type="text/javascript" src="{% static 'foundation/js/foundation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'foundation/js/foundation/foundation.equalizer.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/endless-pagination.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/highlight.pack.js' %}"></script>
 
-                var footer = $("#footer");
-                var pos = footer.position();
-                var height = $(window).height();
-                height = height - pos.top;
-                height = height - footer.height();
-                if (height > 0) {
-                    footer.animate({
-                        'margin-top': height + 'px'
-                    });
-                }
+<!-- initialize foundation framework, fix footer -->
+<script type="text/javascript">
+    $(document).foundation();
+
+    hljs.initHighlightingOnLoad();
+
+    // sticky footer
+    $(window).bind("load", function () {
+
+        //$('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+
+        var footer = $("#footer");
+        var pos = footer.position();
+        var height = $(window).height();
+        height = height - pos.top;
+        height = height - footer.height();
+        if (height > 0) {
+            footer.animate({
+                'margin-top': height + 'px'
             });
+        }
+    });
 
-            $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+    $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
 
-            $(window).resize(function(){
-                $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
-            });
+    $(window).resize(function () {
+        $('.gallery.large').attr("width", $('#sidebar-large-only').width() - 18);
+    });
 
-            $('#menu_toggle').click(function() {
-                window.scrollTo(0,0);
-            });
+    $('#menu_toggle').click(function () {
+        window.scrollTo(0, 0);
+    });
 
-            function contact() {
-                mailadress = "office" + "@" + "stahlnow.com";
-                location.href="mailto:" + mailadress;
-            }
+    function contact() {
+        mailadress = "office" + "@" + "stahlnow.com";
+        location.href = "mailto:" + mailadress;
+    }
 
 
-        </script>
+</script>
 
-        <!-- render javascript from other templates -->
-        {% render_block "js" %}
+<!-- render javascript from other templates -->
+{% render_block "js" %}
 
-    </body>
-    </html>
+</body>
+</html>
