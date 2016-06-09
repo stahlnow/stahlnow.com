@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import ckeditor.fields
 import django.utils.timezone
+import ckeditor.fields
+import django.db.models.deletion
 from django.conf import settings
 import taggit.managers
 
@@ -12,7 +13,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('taggit', '0001_initial'),
-        ('fileupload', '0005_auto_20150330_1902'),
+        ('fileupload', '0006_auto_20150401_1340'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -48,7 +49,7 @@ class Migration(migrations.Migration):
                 ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('category', models.ForeignKey(to='projects.Category', null=True)),
                 ('tags', taggit.managers.TaggableManager(to='taggit.Tag', through='taggit.TaggedItem', help_text='A comma-separated list of tags.', verbose_name='Tags')),
-                ('teaser', models.ForeignKey(to='fileupload.File')),
+                ('teaser', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, blank=True, to='fileupload.File', null=True)),
             ],
             options={
                 'ordering': ('my_order',),
