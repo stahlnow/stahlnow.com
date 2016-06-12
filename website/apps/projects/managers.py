@@ -7,3 +7,7 @@ class PublicManager(Manager):
 
     def published(self):
         return self.get_queryset().filter(status__gte=2, publish__lte=now())
+
+
+    def get_next_project(self):
+        return self.get_queryset().filter(my_order=2)

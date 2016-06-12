@@ -7,6 +7,9 @@
     font-family: 'Open Sans';
 }
 
+p {
+    line-height: 1.3;
+}
 
 img {
     height: auto !important;
@@ -334,18 +337,19 @@ a.blog_title:hover:before {
 
 .sidebar_title {
     cursor: default;
-    background-color: #444;
+    background-color: #111;
     color: #ddd;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 10px;
+    font-weight: bolder;
     display: block;
-    margin: 8px;
-    padding: 8px 8px 8px 15px;
+    /*margin: 4px;*/
+    margin: 0;
+    padding: 4px 4px 4px 8px;
 }
 
 .sidebar_inner {
     font-size: 12px;
-    margin: 8px;
+    margin: 4px;
     padding: 2px;
 }
 
@@ -371,7 +375,7 @@ a.blog_title:hover:before {
 #footer-stripe {
     margin-top: -14px;
     height: 33px;
-    background-color: #030;
+    background-color: #111;
 }
 
 /* VERTICALLY CENTERED TRICK */

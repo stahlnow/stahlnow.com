@@ -16,7 +16,7 @@ v1_api.register(FileResource())
 
 urlpatterns = patterns(
     '',
-    (r'^$', include('blog.urls')),
+    (r'^$', include('projects.urls')),
     (r'^blog/', include('blog.urls')),
     (r'^projects/', include('projects.urls')),
 

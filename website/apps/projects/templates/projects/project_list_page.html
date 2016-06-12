@@ -1,6 +1,7 @@
 {% load i18n endless thumbnail %}
 {% lazy_paginate 100 projects %}
 
+<!--
 <div class="row full" style="padding-left: 15px;">
     <ul class="large-block-grid-3">
         <li class="project {{projects.0.category.slug}}">
@@ -29,9 +30,10 @@
         </li>
     </ul>
 </div>
+-->
 <div class="row full" style="padding-left: 15px;">
     <ul class="large-block-grid-4">
-        {% for project in projects|slice:"3:" %}
+        {% for project in projects %}
 
         <li class="project {{project.category.slug}}">
 

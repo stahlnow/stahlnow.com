@@ -68,10 +68,16 @@ class Project(models.Model):
     def get_absolute_url(self):
         return 'project_detail', (), {'slug': self.slug}
 
-    def get_previous_post(self):
-        return self.get_previous_by_publish(status__gte=2)
+    def get_next(self):
+        next = Project.objects.filter(my_order__gt=self.my_order)
+        if next:
+            return next.first().get_absolute_url()
+        return Project.objects.get(my_order=1).get_absolute_url()
 
-    def get_next_post(self):
-        return self.get_next_by_publish(status__gte=2)
+    def get_previous(self):
+        prev = Project.objects.filter(my_order__lt=self.my_order).order_by('-my_order')
+        if prev:
+            return prev.first().get_absolute_url()
+        return Project.objects.order_by('-my_order')[0].get_absolute_url()
 
 
