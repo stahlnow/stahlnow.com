@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 from tastypie.api import Api
 from uploader.api import FileResource
 
+from projects.views import ProjectListView
 from blog.views import PostListViewByTags, ArchiveListView
 
-from pages.views import PageDetailView
 
 admin.autodiscover()
 
@@ -18,12 +18,12 @@ v1_api.register(FileResource())
 
 urlpatterns = [
 
-    url(r'^$', include('projects.urls')),
+    url(r'^$', ProjectListView.as_view(), name='projects'),
 
     url(r'^blog/', include('blog.urls')),
     url(r'^projects/', include('projects.urls')),
 
-    url(r'^show/([\w-]+)/$', PostListViewByTags.as_view()),
+    url(r'^show/([\w-]+)', PostListViewByTags.as_view()),
     url(r'^archive/', ArchiveListView.as_view()),
 
     url(r'^upload/', include('fileupload.urls')),
