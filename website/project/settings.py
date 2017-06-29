@@ -153,6 +153,9 @@ BOWER_INSTALLED_APPS = (
 # pagination
 ENDLESS_PAGINATION_PER_PAGE = 3
 
+# taggit tag cloud
+TAGGIT_LIMIT = 10000
+
 # load local_settings
 try:
     from local_settings import *
