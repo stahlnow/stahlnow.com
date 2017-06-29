@@ -1,13 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from ckeditor.fields import RichTextField
-
 
 class Page(models.Model):
     """Page model."""
     title = models.CharField(_('title'), max_length=100)
     slug = models.SlugField(_('slug'), unique=True)
-    body = RichTextField(_('body'), )
+    body = models.TextField(_('body'), )
     script = models.TextField(_('script'), null=True, blank=True)
 
     class Meta:

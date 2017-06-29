@@ -37,7 +37,7 @@ class Base64FileField(FileField):
     """
 
     def __init__(self, **kwargs):
-        print "init"
+        #print "init"
         self.return64 = kwargs.pop('return64', False)
         super(Base64FileField, self).__init__(**kwargs)
 

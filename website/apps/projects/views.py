@@ -1,4 +1,4 @@
-from endless_pagination.views import AjaxListView
+from el_pagination.views import AjaxListView
 from django.views.generic import DetailView
 from django.utils import timezone
 

@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.utils.translation import ugettext as _
 from itertools import chain
-from endless_pagination.views import AjaxListView
+from el_pagination.views import AjaxListView
 from django.views.generic import DetailView, ListView
 from django.utils import timezone
 from django.db.models import Q

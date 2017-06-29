@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import django.utils.timezone
-import ckeditor.fields
 import django.db.models.deletion
 from django.conf import settings
 import taggit.managers
@@ -39,7 +38,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(max_length=200, verbose_name='title')),
                 ('slug', models.SlugField(verbose_name='slug', unique_for_date=b'publish')),
-                ('body', ckeditor.fields.RichTextField(verbose_name='body')),
+                ('body', models.TextField(verbose_name='body')),
                 ('status', models.IntegerField(default=2, verbose_name='status', choices=[(1, 'Draft'), (2, 'Public')])),
                 ('allow_comments', models.BooleanField(default=True, verbose_name='allow comments')),
                 ('publish', models.DateTimeField(default=django.utils.timezone.now, verbose_name='publish')),

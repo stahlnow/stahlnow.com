@@ -1,5 +1,5 @@
 from django.contrib import admin
-from adminsortable.admin import SortableAdminMixin
+from adminsortable2.admin import SortableAdminMixin
 from projects.models import Project, Category
 
 from fileupload.models import File

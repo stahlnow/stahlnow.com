@@ -7,7 +7,6 @@ from django.conf import settings
 
 from projects.managers import PublicManager
 
-from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 
 from fileupload.models import File
@@ -36,7 +35,7 @@ class Project(models.Model):
     title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(_('slug'), unique_for_date='publish')
     author = models.ForeignKey(User)
-    body = RichTextField(_('body'), )
+    body = models.TextField(_('body'), )
     teaser = models.ForeignKey(File, blank=True, null=True, on_delete=models.SET_NULL)
     status = models.IntegerField(_('status'), choices=STATUS_CHOICES, default=2)
     allow_comments = models.BooleanField(_('allow comments'), default=True)

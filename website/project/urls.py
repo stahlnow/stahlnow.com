@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -8,29 +8,30 @@ from uploader.api import FileResource
 
 from blog.views import PostListViewByTags, ArchiveListView
 
+from pages.views import PageDetailView
+
 admin.autodiscover()
 
 v1_api = Api(api_name=settings.API_VERSION)     # settings.API_VERSION = 'v1'
 v1_api.register(FileResource())
 
 
-urlpatterns = patterns(
-    '',
-    (r'^$', include('projects.urls')),
-    (r'^blog/', include('blog.urls')),
-    (r'^projects/', include('projects.urls')),
+urlpatterns = [
 
-    (r'^show/([\w-]+)/$', PostListViewByTags.as_view()),
-    (r'^archive/$', ArchiveListView.as_view()),
+    url(r'^$', include('projects.urls')),
 
-    (r'^upload/', include('fileupload.urls')),
-    (r'^uploader/', include('uploader.urls')),
+    url(r'^blog/', include('blog.urls')),
+    url(r'^projects/', include('projects.urls')),
 
-    (r'^api/', include(v1_api.urls)),
-    (r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^show/([\w-]+)/$', PostListViewByTags.as_view()),
+    url(r'^archive/', ArchiveListView.as_view()),
 
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^upload/', include('fileupload.urls')),
+    url(r'^uploader/', include('uploader.urls')),
 
-    (r'^', include('pages.urls')),
+    url(r'^api/', include(v1_api.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
-    ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^', include('pages.urls')),
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

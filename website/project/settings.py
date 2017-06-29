@@ -23,13 +23,12 @@ INSTALLED_APPS = (
     'compressor',
     'sekizai',
     'tastypie',
-    'ckeditor',
     'lineage',
     'taggit',
-    'taggit_templatetags',
-    'endless_pagination',
+    'taggit_templatetags2',
+    'el_pagination',
     'easy_thumbnails',
-    'adminsortable',
+    'adminsortable2',
     'fileupload',
     'uploader',
     'filer',
@@ -50,16 +49,33 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.core.context_processors.request',
-    'sekizai.context_processors.sekizai'
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
+                # sekizai
+                'sekizai.context_processors.sekizai',
+            ],
+            'loaders': [
+                # admin tools
+                # 'admin_tools.template_loaders.Loader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader'
+            ],
+        },
+    },
+]
 
 ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
@@ -73,19 +89,15 @@ USE_L10N = True
 USE_TZ = True
 
 # static configuration
-STATICFILES_DIRS = (
-    ("img", os.path.join(BASE_DIR, "static/img")),
-    ("css", os.path.join(BASE_DIR, "static/css")),
-    ("js", os.path.join(BASE_DIR, "static/js")),
-)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'djangobower.finders.BowerFinder',
     'compressor.finders.CompressorFinder',
 )
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'site-static'),
+)
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -123,7 +135,7 @@ API_VERSION = 'v1'
 TASTYPIE_ALLOW_MISSING_SLASH = True
 
 # bower
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'site-static')
 BOWER_INSTALLED_APPS = (
     'backbone#1.2.1',
     'csshake',
@@ -136,51 +148,6 @@ BOWER_INSTALLED_APPS = (
     'jquery.cookie#1.4.1',
     'three.js#0.71.0'
 )
-
-# wysiwyg settings
-CKEDITOR_ROOT = os.path.join(BASE_DIR, 'media/files')
-CKEDITOR_URL = '/media/files/'
-#CKEDITOR_UPLOAD_PATH = 'files/'
-CKEDITOR_IMAGE_BACKEND = 'pillow'
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'CMS, Full',
-        'toolbar_CMS': [
-            {
-                'name': 'basicstyles',
-                'groups': ['basicstyles', 'cleanup'],
-                'items': ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat']
-            },
-            {
-                'name': 'paragraph',
-                'groups': ['list', 'indent', 'blocks'],
-                'items': [
-                    'NumberedList', 'BulletedList', '-', 'Outdent',
-                    'Indent', '-', 'Blockquote'
-                ]
-            },
-            {
-                'name': 'links',
-                'items': ['Link', 'Unlink']
-            },
-            {
-                'name': 'insert',
-                'items': ['Image', 'HorizontalRule', 'Table', 'Iframe', ]
-            },
-            {
-                'name': 'colors',
-                'items': ['TextColor', 'BGColor']
-            }
-        ],
-        'height': 500,
-        'width': 1500,
-        'skin': 'moono',
-        'uiColor': '#aaff00',
-        #'startupMode': 'source'
-    },
-}
 
 
 # pagination
