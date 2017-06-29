@@ -13,7 +13,8 @@ from taggit.models import TaggedItem, Tag
 
 class PostListView(AjaxListView):
     model = Post
-    queryset = Post.objects.published()
+    #queryset = Post.objects.published()
+    queryset = Post.objects.all()
     context_object_name = 'posts'
 
 
