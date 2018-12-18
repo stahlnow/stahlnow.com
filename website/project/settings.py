@@ -22,7 +22,7 @@ INSTALLED_APPS = (
     'djangobower',
     'compressor',
     'sekizai',
-    'tastypie',
+    # 'tastypie',
     'lineage',
     'taggit',
     'taggit_templatetags2',
@@ -30,7 +30,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'adminsortable2',
     'fileupload',
-    'uploader',
+    # 'uploader',
     'filer',
     'mptt',
     'blog',
@@ -131,8 +131,8 @@ FILER_STORAGES = {
 }
 
 # tastypie
-API_VERSION = 'v1'
-TASTYPIE_ALLOW_MISSING_SLASH = True
+# API_VERSION = 'v1'
+# TASTYPIE_ALLOW_MISSING_SLASH = True
 
 # bower
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'site-static')

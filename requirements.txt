@@ -11,7 +11,7 @@ django-classy-tags==0.5.1
 django-compressor==2.0
 django-el-pagination==3.1.0
 django-extensions==1.7.9
-django-filer==1.2.7
+django-filer==1.4.1
 django-lineage==0.2.0
 django-mptt==0.8.7
 django-polymorphic==1.2
@@ -19,13 +19,13 @@ django-sekizai==0.10.0
 django-shell-plus==1.1.5
 django-taggit==0.22.0
 django-taggit-templatetags2==1.6.1
-django-tastypie==0.13.3
+# django-tastypie==0.13.3
 django-templatetag-sugar==1.0
 easy-thumbnails==2.4.1
 gunicorn==19.0.0
 meld3==1.0.0
 pathtools==0.1.2
-psycopg2==2.7.1
+psycopg2-binary
 python-dateutil==2.3
 python-mimeparse==0.1.4
 pytz==2014.4

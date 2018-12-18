@@ -3,8 +3,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from tastypie.api import Api
-from uploader.api import FileResource
+# from tastypie.api import Api
+# from uploader.api import FileResource
 
 from projects.views import ProjectListView
 from blog.views import PostListViewByTags, ArchiveListView
@@ -12,8 +12,8 @@ from blog.views import PostListViewByTags, ArchiveListView
 
 admin.autodiscover()
 
-v1_api = Api(api_name=settings.API_VERSION)     # settings.API_VERSION = 'v1'
-v1_api.register(FileResource())
+# v1_api = Api(api_name=settings.API_VERSION)     # settings.API_VERSION = 'v1'
+# v1_api.register(FileResource())
 
 
 urlpatterns = [
@@ -27,11 +27,9 @@ urlpatterns = [
     url(r'^archive/', ArchiveListView.as_view()),
 
     url(r'^upload/', include('fileupload.urls')),
-    url(r'^uploader/', include('uploader.urls')),
 
-    url(r'^api/', include(v1_api.urls)),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^', include('pages.urls')),
+    # url(r'^', include('pages.urls')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
